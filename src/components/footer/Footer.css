@@ -1,0 +1,10 @@
+
+.footer {
+    height: 10vh;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to left top, rgb(248, 253, 200), rgb(247, 232, 185));
+}

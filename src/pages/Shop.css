@@ -1,0 +1,24 @@
+.shop {
+  height: 100%;
+  display: flex;
+}
+
+.category-nav {
+  padding: 1.5rem;
+}
+
+.product-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-order-select {
+  margin: 1rem;
+  align-self: flex-end;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}

@@ -1,3 +1,7 @@
+:root {
+  --site-width: 80%;
+}
+
 *,
 *::before,
 *::after {
@@ -11,4 +15,10 @@
 html {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
+}
+
+main {
+  height: 80vh;
+  width: 80%;
+  margin: 0 auto;
 }

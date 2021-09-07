@@ -1,0 +1,12 @@
+
+.category-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-item-title {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+}
