@@ -26,7 +26,7 @@ const useCart = () => {
     }
 
     const editQunatityOnCart = (cartId, newQuantity) => {
-        if (quantity < 1) return;
+        if (newQuantity < 1) return;
         setCart(
             cart => cart.map((item) =>
                 item.cartId === cartId
@@ -42,11 +42,14 @@ const useCart = () => {
         );
     }
 
-    const calculateTotalCost = () => {
-        return cart.reduce((total, item) => {
-            return total + item.price;
+    const calculateTotalCost = (cart) => {
+        const total = cart.reduce((total, item) => {
+            return total + item.price * item.quantity;
         }, 0);
+        return total.toFixed(2);
     }
+
+    const getItemCount = (cart) => cart.reduce((total, item) => total + item.quantity, 0);
 
     return {
         cart,
@@ -54,6 +57,7 @@ const useCart = () => {
         editQunatityOnCart,
         removeFromCart,
         calculateTotalCost,
+        getItemCount,
     }
 }
 

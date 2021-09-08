@@ -26,4 +26,13 @@
 .header-cart {
     display: flex;
     justify-content: center;
+  position: relative;
+}
+
+.cart-item-counter {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
 }

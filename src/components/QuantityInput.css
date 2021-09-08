@@ -1,0 +1,9 @@
+.quantity-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.increment-btn,
+.decrement-btn {
+  padding: 0.5rem;
+}

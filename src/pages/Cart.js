@@ -1,7 +1,8 @@
 import { CartItem } from "../components/CartItem"
+import { QuantityInput } from "../components/QuantityInput"
 import "./Cart.css"
 
-const Cart = ({ }) => {
+const Cart = ({ cart, editQunatityOnCart, removeFromCart, calculateTotal, getItemCount }) => {
     return (
         <section className="cart">
             <div className="cart-header">
@@ -13,21 +14,28 @@ const Cart = ({ }) => {
                 <p className="item-header">Total</p>
                 <p className="item-header">Remove</p>
                 {
-                    /*
-                        map each cart item to
+                    cart.map((item) =>
                         <>
-                            <CartItem>
-                            <QuanttySelect>
-                            <p>{price * quantity}</p>
-                            <RemoveIcon>
-                        <>
-
-                    */
+                            <CartItem
+                                key={item.cartId}
+                                name={item.name}
+                                src={item.src}
+                                price={item.price}
+                            />
+                            <QuantityInput
+                            key={`${item.cartId}quantity`}
+                                quantity={item.quantity}
+                                editQunatityOnCart={(quantity) => editQunatityOnCart(item.cartId, quantity)}
+                            />
+                            <p key={`${item.cartId}total`} className="total">{(item.price * item.quantity).toFixed(2)}</p>
+                            <button key={`${item.cartId}remove`} className="remove-item" onClick={() => removeFromCart(item.cartId)}>X</button>
+                        </>
+                    )
                 }
             </div>
             <div className="cart-summary">
-                <p className="total-price">{`Total Price (${1} Item): ${150.99} Euro`}</p>
-                <button className="checkout-btn">Checkout</button>
+                <p className="total-price">{`Total Price (${getItemCount(cart)} Item): ${calculateTotal(cart)} Euro`}</p>
+                <button className="checkout-btn" >Checkout</button>
             </div>
         </section>
     )

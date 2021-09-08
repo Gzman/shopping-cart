@@ -3,11 +3,11 @@ import { Link } from "react-router-dom"
 import { Logo } from "./Logo"
 import "./Header.css"
 
-const Header = () => {
+const Header = ({ filterProductsByText, cart, getItemCount }) => {
     return (
         <div className="header">
             <Logo />
-            <input className="header-search" type="text" />
+            <input className="header-search" type="text" onChange={(e) => filterProductsByText(e.target.value)} />
             <nav className="header-nav">
                 <ul>
                     <li>
@@ -20,6 +20,9 @@ const Header = () => {
             </nav>
             <div className="header-cart">
                 <Link to="/cart">Cart</Link>
+                <h3 className="cart-item-counter">
+                    {getItemCount(cart)}
+                </h3>
             </div>
         </div>
     )
